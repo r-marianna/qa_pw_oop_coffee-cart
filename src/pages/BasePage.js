@@ -3,9 +3,8 @@ const { expect, step } = require('@playwright/test');
 export class BasePage {
   _url;
 
-  constructor(page, userId = 0) {
+  constructor(page) {
     this.page = page;
-    this.userId = userId;
   }
 
   url() {
@@ -17,7 +16,7 @@ export class BasePage {
   }
 
   _pageName() {
-    this.constructor.name.replace('Page', '')
+    return this.constructor.name.replace('Page', '')
   }
 
   async open() {
